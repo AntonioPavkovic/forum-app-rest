@@ -14,7 +14,7 @@ const database = (module.exports = () => {
 
     try {
         mongoose.connect(
-            'mongodb+srv://antoniopavkovic:SBP-Mongo@cluster0.jjbaqar.mongodb.net/?retryWrites=true&w=majority',
+            'mongodb-atlas-uri',
             connectionParams
             );
         console.log('Database connected succesfully');
