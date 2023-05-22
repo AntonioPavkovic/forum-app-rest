@@ -1,6 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const forumRoutes = require('./routes/forumRoutes');
+const postRoutes = require('./routes/postRoutes');
+const commentRoutes = require('./routes/commentRoutes');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -14,7 +16,7 @@ const database = (module.exports = () => {
 
     try {
         mongoose.connect(
-            'mongodb-atlas-uri',
+            'mongodb-uri',
             connectionParams
             );
         console.log('Database connected succesfully');
@@ -29,6 +31,8 @@ database();
 
 app.use(express.json());
 app.use('/forums', forumRoutes);
+app.use('/forums', postRoutes);
+app.use('/forums', commentRoutes);
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
