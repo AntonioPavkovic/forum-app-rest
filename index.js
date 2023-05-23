@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const userRoutes = require('./routes/userRoutes');
 const forumRoutes = require('./routes/forumRoutes');
 const postRoutes = require('./routes/postRoutes');
 const commentRoutes = require('./routes/commentRoutes');
@@ -30,6 +31,7 @@ const database = (module.exports = () => {
 database();
 
 app.use(express.json());
+app.use('/users', userRoutes);
 app.use('/forums', forumRoutes);
 app.use('/forums', postRoutes);
 app.use('/forums', commentRoutes);
