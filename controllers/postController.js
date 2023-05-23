@@ -110,6 +110,26 @@ const deletePost = async (req, res) => {
 
 };
 
+
+const getPostsByUser = async (req, res) => {
+
+    const { user_id } = req.params;
+
+    try {
+
+        const posts = await Post.find({ user_id });
+        
+        if (!posts) {
+            return res.status(404).json({ message: 'Post not found!' });
+        }
+
+        res.json(posts);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+
+};
+
 const likePost = async (req, res) => {
 
     const { id } = req.params;
@@ -155,5 +175,6 @@ module.exports = {
     updatePost,
     deletePost,
     likePost,
-    dislikePost
+    dislikePost,
+    getPostsByUser
 };

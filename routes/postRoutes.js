@@ -17,6 +17,9 @@ router.put('/posts/:id', postController.updatePost);
 // Delete a post by ID
 router.delete('/posts/:id', postController.deletePost);
 
+// Get post by user
+router.get('/users/:user_id/posts', postController.getPostsByUser);
+
 // Like a post
 router.post('/posts/:id/like', postController.likePost);
 
