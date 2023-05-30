@@ -9,21 +9,21 @@ router.post('/:forum_id/posts', postController.createPost);
 router.get('/:forum_id/posts', postController.getPostsByForum);
 
 // Get a single post by ID
-router.get('/posts/:id', postController.getPostById);
+router.get('/:forum_id/posts/:id', postController.getPostById);
 
 // Update a post by ID
-router.put('/posts/:id', postController.updatePost);
+router.put('/:forum_id/posts/:id', postController.updatePost);
 
 // Delete a post by ID
-router.delete('/posts/:id', postController.deletePost);
+router.delete('/:forum_id/posts/:id', postController.deletePost);
 
 // Get post by user
 router.get('/users/:user_id/posts', postController.getPostsByUser);
 
 // Like a post
-router.post('/posts/:id/like', postController.likePost);
+router.post('/:forum_id/posts/:id/like', postController.likePost);
 
 // Dislike a post
-router.post('/posts/:id/dislike', postController.dislikePost);
+router.post('/:forum_id/posts/:id/dislike', postController.dislikePost);
 
 module.exports = router;

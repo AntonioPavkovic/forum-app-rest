@@ -3,24 +3,24 @@ const router = express.Router();
 const commentController = require('../controllers/commentController');
 
 // Create a new comment for a post
-router.post('/posts/:post_id/comments', commentController.createComment);
+router.post('/:forum_id/posts/:post_id/comments', commentController.createComment);
 
 // Get all comments for a post
-router.get('/posts/:post_id/comments', commentController.getCommentsByPost);
+router.get('/:forum_id/posts/:post_id/comments', commentController.getCommentsByPost);
 
 // Get a single comment by ID
-router.get('/posts/comments/:id', commentController.getCommentById);
+router.get('/:forum_id/posts/comments/:id', commentController.getCommentById);
 
 // Update a comment by ID
-router.put('/comments/:id', commentController.updateComment);
+router.put('/:forum_id/posts/:post_id/comments/:id', commentController.updateComment);
 
 // Delete a comment by ID
-router.delete('/posts/comments/:id', commentController.deleteComment);
+router.delete('/:forum_id/posts/:post_id/comments/:id', commentController.deleteComment);
 
 // Like a comment
-router.post('/posts/comments/:id/like', commentController.likeComment);
+router.post('/:forum_id/posts/:post_id/comments/:id/like', commentController.likeComment);
 
 // Dislike a comment
-router.post('/posts/comments/:id/dislike', commentController.dislikeComment);
+router.post('/:forum_id/posts/:post_id/comments/:id/dislike', commentController.dislikeComment);
 
 module.exports = router;
